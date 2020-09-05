@@ -1,13 +1,22 @@
 import React, { useState } from "react";
 import "./styles.css";
 
+const Post = ({ src }) => (
+  <>
+    <img src={src} alt="profile-picture" />
+  </>
+);
+
 const Profile = (props) => {
+  const { username } = props;
   const [isFollowed, setIsFollowed] = useState(false);
+  const postCount = 0;
+  const posts = [...Array(postCount)];
 
   return (
     <>
       <img src="https://via.placeholder.com/150" alt="profile picture" />
-      <div>@{props.username}</div>
+      <div>@{username}</div>
       <button onClick={() => setIsFollowed(!isFollowed)}>
         {isFollowed ? "Unfollow" : "Follow"}
       </button>
@@ -15,16 +24,16 @@ const Profile = (props) => {
       <div>Follower</div>
       <div>Following</div>
       <div>Bio</div>
-      <Post src="https://via.placeholder.com/300" />;
+      {postCount === 0 ? (
+        <div>No Posts</div>
+      ) : (
+        posts.map((_, idx) => (
+          <Post src="https://via.placeholder.com/300" key={idx} />
+        ))
+      )}
     </>
   );
 };
-
-const Post = (props) => (
-  <>
-    <img src={props.src} alt="profile-picture" />
-  </>
-);
 
 export default function App() {
   const username = "instagram";
