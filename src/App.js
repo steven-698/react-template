@@ -3,7 +3,7 @@ import "./styles.css";
 
 const Post = ({ src }) => (
   <>
-    <img src={src} alt="profile-picture" />
+    <img src={src}  aria-hidden alt="profile-picture" />
   </>
 );
 
@@ -23,7 +23,7 @@ const Profile = (props) => {
         placeholder="search profile"
       />
       <div>Search Result for Account : {queryString}</div>
-      <img src="https://via.placeholder.com/150" alt="profile picture" />
+      <img src="https://via.placeholder.com/150" aria-hidden alt="profile-picture" />
       <div>@{username}</div>
       <button onClick={() => setIsFollowed(!isFollowed)}>
         {isFollowed ? "Unfollow" : "Follow"}
