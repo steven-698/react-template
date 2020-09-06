@@ -1,6 +1,6 @@
 stages:
-    -build
-    -deploy
+    - build
+    - deploy
 
 build_app:
     stage: build
@@ -9,7 +9,7 @@ build_app:
         - yarn build
     artifacts:
         paths:
-            -build
+            - build
         expire_in: 1 day
 
 deploy_draft:
@@ -22,5 +22,5 @@ deploy_prod:
     stage: deploy
     script:
         - npm install -g netlify-cli
-        - netlify deploy --site ${NETLIFY_SITE_ID} --auth ${NETLIFY_TOKEN} --dir build
+        - netlify deploy --site ${NETLIFY_SITE_ID} --auth ${NETLIFY_TOKEN} --dir build --prod
     when: manual
