@@ -5,8 +5,8 @@ stages:
 build_app:
     stage: build
     script:
-        - yarn install
-        - yarn build
+        - npm install
+        - npm build
     artifacts:
         paths:
             - build
