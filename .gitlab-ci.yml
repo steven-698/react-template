@@ -1,12 +1,12 @@
 stages:
-    - build
-    - deploy
+    - "build"
+    - "deploy"
 
 build_app:
     stage: build
     script:
-        - npm install
-        - npm build
+        - yarn install
+        - yarn build
     artifacts:
         paths:
             - build
