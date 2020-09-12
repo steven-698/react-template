@@ -7,7 +7,7 @@ const Profile = (props) => {
   const { username } = props;
   const [isFollowed, setIsFollowed] = useState(false);
   const [posts, setPosts] = useState();
-
+  // const [queryString, setQueryString] = useState("");
   useEffect(() => {
     fetchPosts().then(setPosts);
   }, []);
@@ -15,7 +15,14 @@ const Profile = (props) => {
   return (
     <React.Fragment>
       <ProfilePicture src="https://via.placeholder.com/150" />
-
+      {/* <input
+        onChange={(e) => {
+          setQueryString(e.target.value);
+        }}
+        placeholder="search profile"
+      />
+      <div>Search Result for Account : {queryString}</div>
+      <img src="https://via.placeholder.com/150" alt="profile picture" /> */}
       <div>@{username}</div>
       <button onClick={() => setIsFollowed(!isFollowed)}>
         {isFollowed ? "Unfollow" : "Follow"}
